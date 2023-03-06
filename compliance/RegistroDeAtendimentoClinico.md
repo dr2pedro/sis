@@ -16,9 +16,9 @@
 - [Motivacao](RegistroDeAtendimentoClinico.md#motivação)
 - [StakeHolders](RegistroDeAtendimentoClinico.md#stakeholders)
 - [Especificação](RegistroDeAtendimentoClinico.md#especificação)
-    - [Identificação do Indivíduo](RegistroDeAtendimentoClinico.md#identificação-do-indivíduo-obrigatório-único-objeto)
+    - [Identificação do Indivíduo](RegistroDeAtendimentoClinico.md#identificacão-do-indivíduo-obrigatório-único-objeto)
         - [Identificador Demográfico](RegistroDeAtendimentoClinico.md#identificador-demográfico-opcional-único-object-validação)
-    - [Caracterização do Atendimento](RegistroDeAtendimentoClinico.md#caracterização-do-atendimento)
+    - [Caracterização do Atendimento](RegistroDeAtendimentoClinico.md#caracterizacão-do-atendimento)
         - [Profissionais do Atendimento](RegistroDeAtendimentoClinico.md#profissionais-do-atendimento-obrigatório-único-object)
             - [Profissional](RegistroDeAtendimentoClinico.md#profissional-obrigatório-múltiplos-object)
     - [Motivo do Atendimento](RegistroDeAtendimentoClinico.md#motivo-do-atendimento-opcional-único-objeto)
@@ -83,7 +83,7 @@ Repare que esse agregado herda vários identificadores únicos de seus objetos d
 
 <br>
 
-#### Identificação do Indivíduo [*obrigatório*, *único*, *objeto* ]
+#### Identificacão do Indivíduo [*obrigatório*, *único*, *objeto*]
 
 Para identidicação do indivíduo apenas o CPF ou Carteira Nacional de Saúde (CNS) e o endereço. Caso o paciente não possua CPF e CNS, deve-se inserir um conjunto de dados demográficos.
 
@@ -130,7 +130,7 @@ Para se idenficar o indivíduo por dados demográficos deve-se ter:
 
 <br>
 
-#### Caracterização do Atendimento [*obrigatório*, *único*, *objeto* ]
+#### Caracterizacão do Atendimento [*obrigatório*, *único*, *objeto* ]
 
 Um atendimento é composto de:
 
