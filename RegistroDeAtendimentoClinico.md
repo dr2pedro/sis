@@ -112,7 +112,7 @@ Para identidicação do indivíduo apenas o CPF ou Carteira Nacional de Saúde (
 |:----------------|:---------|
 | **Validação**   | Apenas inserido na ausência do Identicador Nacional. |
 
-3. **Endereço** [*opcional*, *único*, *Array<string>*, *validação*] - Uma sequencia contendo os nomes do logradouro em ordem de precedência.
+3. **Endereço** [*opcional*, *único*, *Array/string*, *validação*] - Uma sequencia contendo os nomes do logradouro em ordem de precedência.
 
 |||
 |:----------------|:---------|
@@ -125,9 +125,9 @@ Para identidicação do indivíduo apenas o CPF ou Carteira Nacional de Saúde (
 #### Identificador Demográfico [*opcional*, *único*, *object*, *validação*]
 Para se idenficar o indivíduo por dados demográficos deve-se ter:
 
-1. **Nome Completo** [*obrigatório*, *único*, *Array<string>*];
-2. **Nome Social** [*opcional*, *único*, *Array<string>*];
-3. **Nome completo da mãe** [*obrigatório*, *único*, *Array<string>*];
+1. **Nome Completo** [*obrigatório*, *único*, *Array/string*];
+2. **Nome Social** [*opcional*, *único*, *Array/string*];
+3. **Nome completo da mãe** [*obrigatório*, *único*, *Array/string*];
 4. **Data de nascimento** [*obrigatório*, *único*, *string*, *validação*]
 
 |||
@@ -179,7 +179,7 @@ Os profissionais envolvidos no atendimento são identificados por dois campos pr
 
 <br>
 
-##### Profissional [*obrigatório*, *múltiplos*, *Array[object]*]
+##### Profissional [*obrigatório*, *múltiplos*, *Array/object*]
 
 Os dados que idenficam um profissional são:
 
