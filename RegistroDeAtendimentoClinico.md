@@ -1,4 +1,4 @@
-## Registro de Atendimento Clínico 
+# Registro de Atendimento Clínico 
 **Fonte**: [PORTARIA Nº 234, DE 18 DE JULHO DE 2022](https://www.in.gov.br/en/web/dou/-/portaria-n-234-de-18-de-julho-de-2022-416506215)
 
 <br>
@@ -10,7 +10,7 @@
 
 <br>
 
-### Índice
+## Índice
 
 - [Resumo](RegistroDeAtendimentoClinico.md#resumo)
 - [Motivacao](RegistroDeAtendimentoClinico.md#motivação)
@@ -36,9 +36,11 @@
     
 <br>
 
-### Resumo
+## Resumo
 
-### Motivação
+<br>
+
+## Motivação
 
 Os sistemas de informação em saúde (SIS) disponíveis no mercado atualmente abordam o cuidado em saúde como um sistema de histórico de cuidado, excluindo a perspectiva centrada no paciente, desconsiderando sua segurança e seus direitos, sem qualquer cuidado com os dados produzido no atendimento e impedindo a interoperabilidade com outros atores do sistema.
 
@@ -50,7 +52,7 @@ Com a implementação do padrão, previsto em lei, do Registro de Atendimento Cl
 
 <br>
 
-### StakeHolders
+## StakeHolders
 
 Os atores mencionados na lei como partes interessadas na implementação do Registro de Atendimento Clínico são:
 
@@ -70,7 +72,7 @@ Os atores mencionados na lei como partes interessadas na implementação do Regi
 
 <br>
 
-### Especificação
+## Especificação
 
 O Registro de Atendimento é um agregado, bem ao estilo *Domain Driven Design*, de **onze** outros objetos principais:
 
@@ -94,7 +96,7 @@ Repare que esse agregado herda vários identificadores únicos de seus objetos d
 
 <br>
 
-#### Identificacão do Indivíduo [*obrigatório*, *único*, *objeto*]
+### Identificacão do Indivíduo [*obrigatório*, *único*, *objeto*]
 
 Para identidicação do indivíduo apenas o CPF ou Carteira Nacional de Saúde (CNS) e o endereço. Caso o paciente não possua CPF e CNS, deve-se inserir um conjunto de dados demográficos.
 
@@ -120,7 +122,7 @@ Para identidicação do indivíduo apenas o CPF ou Carteira Nacional de Saúde (
 
 <br>
 
-##### Identificador Demográfico [*opcional*, *único*, *object*, *validação*]
+#### Identificador Demográfico [*opcional*, *único*, *object*, *validação*]
 Para se idenficar o indivíduo por dados demográficos deve-se ter:
 
 1. **Nome Completo** [*obrigatório*, *único*, *Array<string>*];
@@ -141,7 +143,7 @@ Para se idenficar o indivíduo por dados demográficos deve-se ter:
 
 <br>
 
-#### Caracterizacão do Atendimento [*obrigatório*, *único*, *objeto* ]
+### Caracterizacão do Atendimento [*obrigatório*, *único*, *objeto* ]
 Um atendimento é composto de:
 
 1. **Identificador do Estabelecimento de saúde** [*obrigatório*, *único*, *string*] - O Cadastro Nacional de Estabelecimento em Saúde (CNES) de onde o atendimento está sendo produzido;
@@ -164,18 +166,20 @@ Um atendimento é composto de:
 
 <br>
 
-##### Profissionais do atendimento [*obrigatório*, *único*, *object*]
+#### Profissionais do atendimento [*obrigatório*, *único*, *object*]
 
 Os profissionais envolvidos no atendimento são identificados por dois campos principais:
 
 1. **Profissional**;
-2. **Identificador do profissional atendente** [*obrigatório*, *único*, *string*, *validação*] - dentificação unívoca do profissional prescritor, mediante número único válido em todo o território nacional, sendo: Cadastro de Pessoa Física (CPF);
+2. **Identificador do profissional atendente** [*obrigatório*, *único*, *string*, *validação*] - identificação unívoca do profissional prescritor, mediante número único válido em todo o território nacional, sendo: Cadastro de Pessoa Física (CPF);
 
 |||
 |:----------------|:---------|
 | **Validação**   | Buscar o CADSUS para conferência. |
 
-###### Profissional [*obrigatório*, *múltiplos*, *Array<object>*]
+<br>
+
+##### Profissional [*obrigatório*, *múltiplos*, *Array[object]*]
 
 Os dados que idenficam um profissional são:
 
@@ -186,7 +190,7 @@ Os dados que idenficam um profissional são:
 
 <br>
 
-#### Motivo do Atendimento [*opcional*, *único*, *objeto* ]
+### Motivo do Atendimento [*opcional*, *único*, *objeto* ]
 O que levou o paciente a procurar a unidade de saúde para atendimento, contendo duas propriedades:
 
 1. **Motivo do atendimento estruturado**;
@@ -194,7 +198,7 @@ O que levou o paciente a procurar a unidade de saúde para atendimento, contendo
 
 <br>
 
-##### Motivo do atendimento estruturado [*opcional*, *múltiplo*, *Array<object>*]
+#### Motivo do atendimento estruturado [*opcional*, *múltiplo*, *Array<object>*]
 
 1. **Terminologia que descreve o motivo do atendimento** [*obrigatório*, *único*, *enum*] - Os motivos utilizam a classificação CIAP ou CID. {*CIAP*, *CID*}.
 
@@ -202,7 +206,7 @@ O que levou o paciente a procurar a unidade de saúde para atendimento, contendo
 
 <br>
 
-#### Observações [*opcional*, *único*, *objeto*]
+### Observações [*opcional*, *único*, *objeto*]
 A propriedade observações é uma propriedade opcional, de objetos opcionais mas que, caso existam, possuem propriedade obrigatórias. A maioria das observações são objetos de valor.
 
 1. **Sinais Vitais**;
@@ -211,12 +215,12 @@ A propriedade observações é uma propriedade opcional, de objetos opcionais ma
 
 <br>
 
-##### Sinais Vitais [*opcional*, *único*, *objeto*]
+#### Sinais Vitais [*opcional*, *único*, *objeto*]
 Na verdade o único sinal vital descrito, que ainda é opcional, é o registro da **Pressão Arterial**.
 
 <br>
 
-###### Pressão Arterial [*opcional*, *único*, *objeto*]
+##### Pressão Arterial [*opcional*, *único*, *objeto*]
 
 1. **Sistólica** [*obrigatório*, *único*, *number*];
 2. **Unidade de medida da Pressão arterial Sistólica** [*obrigatório*, *único*, *enum*] - {*mmHg*};
@@ -228,12 +232,12 @@ Tornozelo direito*, *Tornozelo esquerdo*, *Dedo da mão*, *Dedo do pé*}.
 
 <br>
 
-##### Medições [*opcional*, *único*, *objeto*]
+#### Medições [*opcional*, *único*, *objeto*]
 As medições consistem em: Peso, Altura, Perímetro Encefálico e Circunferência Abdominal. Repara que nem todas serão utilizadas ao mesmo a depender da linha de cuidado.
 
 <br>
 
-###### **Peso** [*opcional*, *único*, *number*]
+##### **Peso** [*opcional*, *único*, *number*]
 1. **Unidade de medida do peso** [*obrigatório*, *único*, *enum*] - Segue os padrões [HL7-FIHR](http://hl7.org/fhir/R4B/valueset-ucum-bodyweight.html) para identificar a unidade de medida. {*kg*, *lb_av*, *g*}.
 2. **Posição em relação à gravidade** [*opcional*, *único*, *enum*] - Segue o padrão [LOINC](https://loinc.org/8361-8/ehttps:/loinc.org/8352-7/) para determinar a posição que a mensuração foi realizada. {*de pé*, *deitado*, *sentado*}.
 3. **Roupas usadas durante a medição** [*opcional*, *único*, *enum*] - Segue o padrão [LOINC](https://loinc.org/8352-7/) para determinar a vestimenta no momento da mensuração. {*Roupa íntima ou menos*, *Roupas de rua, sem sapatos*, *Roupas e sapatos de rua*};
@@ -241,22 +245,22 @@ As medições consistem em: Peso, Altura, Perímetro Encefálico e Circunferênc
 
 <br>
 
-###### **Altura** [*opcional*, *único*, *number*]
+##### **Altura** [*opcional*, *único*, *number*]
 1. **Unidade de medida da altura** [*obrigatório*, *único*, *enum*] - Segue os padrões [HL7-FIHR](http://hl7.org/fhir/ValueSet/ucum-bodylength) para identificar a unidade de medida. {*cm*, *in_i*}.
 2. **Posição em relação à gravidade** [*opcional*, *único* *enum*] - Segue o padrão [LOINC](https://loinc.org/8361-8/ehttps:/loinc.org/8352-7/) para determinar a posição que a mensuração foi realizada. {*de pé*, *deitado*, *sentado*}.
 3. **Origem da medição** [*obrigatório*, *único*, *enum*] - Informar se o peso foi aferido no atendimento ou relatado. {*Medido*, (3141-9); *Relatado* (3142-7)}.
 
 <br>
 
-###### **Perímetro cefálico** [*opcional*, *único*, *number*]
+##### **Perímetro cefálico** [*opcional*, *único*, *number*]
 1. **Unidade de medida do perímetro cefálico** [*obrigatório*, *único*, *enum*] - Segue os padrões [HL7-FIHR](http://hl7.org/fhir/ValueSet/ucum-bodylength) para identificar a unidade de medida. {*cm*, *in_i*}.
 
 <br>
 
-###### **Circunferência abdominal** [*opcional*, *único*, *number*];
+##### **Circunferência abdominal** [*opcional*, *único*, *number*];
 1. **Unidade de medida da Circunferência Abdominal** [*obrigatório*, *único*, *enum*] - Segue o padrão [LOINC](https://loinc.org/8361-8/ehttps:/loinc.org/8352-7/) para determinar a unidade de medida da circunferência abdominal. {*cm*, *in_us*}.
 
 <br>
 
 
-##### Informações adicionais [*opcional*, *único*, *objeto*]
+#### Informações adicionais [*opcional*, *único*, *objeto*]
