@@ -22,6 +22,17 @@
         - [Profissionais do Atendimento](RegistroDeAtendimentoClinico.md#profissionais-do-atendimento-obrigatório-único-object)
             - [Profissional](RegistroDeAtendimentoClinico.md#profissional-obrigatório-múltiplos-object)
     - [Motivo do Atendimento](RegistroDeAtendimentoClinico.md#motivo-do-atendimento-opcional-único-objeto)
+        - [Motivo do Atendimento Estruturado](RegistroDeAtendimentoClinico.md#motivo-do-atendimento-estruturado-opcional-múltiplo-array)
+    - [Observações](RegistroDeAtendimentoClinico.md#observações-opcional-único-objeto)
+        - [Sinais Vitais](RegistroDeAtendimentoClinico.md#sinais-vitais-opcional-único-objeto)
+            - [Pressão Arterial](RegistroDeAtendimentoClinico.md#pressão-arterial-opcional-único-objeto)
+        - [Medições](RegistroDeAtendimentoClinico.md#registro-de-atendimento-clínico)
+            - [Peso](RegistroDeAtendimentoClinico.md#peso-opcional-único-number)
+            - [Altura](RegistroDeAtendimentoClinico.md#altura-opcional-único-number)
+            - [Perímetro Cefálico](RegistroDeAtendimentoClinico.md#perímetro-cefálico-opcional-único-number)
+            - [Circunferência Abdominal](RegistroDeAtendimentoClinico.md#circunferência-abdominal-opcional-único-number)
+        - [Informações Adicionais](RegistroDeAtendimentoClinico.md#informações-adicionais-opcional-único-objeto)
+
     
 <br>
 
@@ -131,7 +142,6 @@ Para se idenficar o indivíduo por dados demográficos deve-se ter:
 <br>
 
 #### Caracterizacão do Atendimento [*obrigatório*, *único*, *objeto* ]
-
 Um atendimento é composto de:
 
 1. **Identificador do Estabelecimento de saúde** [*obrigatório*, *único*, *string*] - O Cadastro Nacional de Estabelecimento em Saúde (CNES) de onde o atendimento está sendo produzido;
@@ -165,7 +175,7 @@ Os profissionais envolvidos no atendimento são identificados por dois campos pr
 |:----------------|:---------|
 | **Validação**   | Buscar o CADSUS para conferência. |
 
-###### Profissional [*obrigatório*, *múltiplos*, *object*]
+###### Profissional [*obrigatório*, *múltiplos*, *Array<object>*]
 
 Os dados que idenficam um profissional são:
 
@@ -174,5 +184,79 @@ Os dados que idenficam um profissional são:
 3. **Conselho do profissional atendente** [*obrigatório*, *único*, *enum* ] - Indica a entidade de conselho do profissional atendente (CRM, CRF, CRO,...).
 4. **UF do conselho do profissional atendente** [*obrigatório*, *único*, *enum* ] - Indica a UF do Conselho do Profissional atendente.
 
+<br>
 
 #### Motivo do Atendimento [*opcional*, *único*, *objeto* ]
+O que levou o paciente a procurar a unidade de saúde para atendimento, contendo duas propriedades:
+
+1. **Motivo do atendimento estruturado**;
+2. **Declaração subjetiva do indivíduo para o atendimento** [*opcional*, *único*, *string*];
+
+<br>
+
+##### Motivo do atendimento estruturado [*opcional*, *múltiplo*, *Array<object>*]
+
+1. **Terminologia que descreve o motivo do atendimento** [*obrigatório*, *único*, *enum*] - Os motivos utilizam a classificação CIAP ou CID. {*CIAP*, *CID*}.
+
+2. **Código do motivo do atendimento** [*opcional*, *único*, *enum*] - Esse é um enum grande porque deve incluir os códigos do cid-9, cid-10, cid-11, ciap-1 e ciap-2.
+
+<br>
+
+#### Observações [*opcional*, *único*, *objeto*]
+A propriedade observações é uma propriedade opcional, de objetos opcionais mas que, caso existam, possuem propriedade obrigatórias. A maioria das observações são objetos de valor.
+
+1. **Sinais Vitais**;
+2. **Medições** [*opcional*, *único*, *objeto*];
+3. **Informações adicionais** [*opcional*, *único*, *objeto*];
+
+<br>
+
+##### Sinais Vitais [*opcional*, *único*, *objeto*]
+Na verdade o único sinal vital descrito, que ainda é opcional, é o registro da **Pressão Arterial**.
+
+<br>
+
+###### Pressão Arterial [*opcional*, *único*, *objeto*]
+
+1. **Sistólica** [*obrigatório*, *único*, *number*];
+2. **Unidade de medida da Pressão arterial Sistólica** [*obrigatório*, *único*, *enum*] - {*mmHg*};
+3. **Diastólica** [*obrigatório*, *único*, *number*];
+4. **Unidade de medida da Pressão arterial Diastólica** [*obrigatório*, *único*, *enum*] - {*mmHg*};
+5. **Posição do indivíduo na aferição** [*opcional*, *único*, *enum*] - Indica a posição do indivíduo no momento da aferição da pressão arterial. {*Em pé*, *Sentado*, *Reclinado*, *Deitado*, *Deitado com inclinação para esquerda*};
+6. **Local de aferição** [*opcional*, *único*, *enum*] - Identifica qual parte do corpo humano foi utilizada para aferir a pressão arterial. {*Braço direito*, *Braço esquerdo*, *Coxa direita*, *Coxa esquerda*, *Pulso direito*, *Pulso esquerdo*, *	
+Tornozelo direito*, *Tornozelo esquerdo*, *Dedo da mão*, *Dedo do pé*}.
+
+<br>
+
+##### Medições [*opcional*, *único*, *objeto*]
+As medições consistem em: Peso, Altura, Perímetro Encefálico e Circunferência Abdominal. Repara que nem todas serão utilizadas ao mesmo a depender da linha de cuidado.
+
+<br>
+
+###### **Peso** [*opcional*, *único*, *number*]
+1. **Unidade de medida do peso** [*obrigatório*, *único*, *enum*] - Segue os padrões [HL7-FIHR](http://hl7.org/fhir/R4B/valueset-ucum-bodyweight.html) para identificar a unidade de medida. {*kg*, *lb_av*, *g*}.
+2. **Posição em relação à gravidade** [*opcional*, *único*, *enum*] - Segue o padrão [LOINC](https://loinc.org/8361-8/ehttps:/loinc.org/8352-7/) para determinar a posição que a mensuração foi realizada. {*de pé*, *deitado*, *sentado*}.
+3. **Roupas usadas durante a medição** [*opcional*, *único*, *enum*] - Segue o padrão [LOINC](https://loinc.org/8352-7/) para determinar a vestimenta no momento da mensuração. {*Roupa íntima ou menos*, *Roupas de rua, sem sapatos*, *Roupas e sapatos de rua*};
+4. **Origem da medição** [*obrigatório*, *único*, *enum*] - Informar se o peso foi aferido no atendimento ou relatado. {*Medido*, (3141-9); *Relatado* (3142-7)}.
+
+<br>
+
+###### **Altura** [*opcional*, *único*, *number*]
+1. **Unidade de medida da altura** [*obrigatório*, *único*, *enum*] - Segue os padrões [HL7-FIHR](http://hl7.org/fhir/ValueSet/ucum-bodylength) para identificar a unidade de medida. {*cm*, *in_i*}.
+2. **Posição em relação à gravidade** [*opcional*, *único* *enum*] - Segue o padrão [LOINC](https://loinc.org/8361-8/ehttps:/loinc.org/8352-7/) para determinar a posição que a mensuração foi realizada. {*de pé*, *deitado*, *sentado*}.
+3. **Origem da medição** [*obrigatório*, *único*, *enum*] - Informar se o peso foi aferido no atendimento ou relatado. {*Medido*, (3141-9); *Relatado* (3142-7)}.
+
+<br>
+
+###### **Perímetro cefálico** [*opcional*, *único*, *number*]
+1. **Unidade de medida do perímetro cefálico** [*obrigatório*, *único*, *enum*] - Segue os padrões [HL7-FIHR](http://hl7.org/fhir/ValueSet/ucum-bodylength) para identificar a unidade de medida. {*cm*, *in_i*}.
+
+<br>
+
+###### **Circunferência abdominal** [*opcional*, *único*, *number*];
+1. **Unidade de medida da Circunferência Abdominal** [*obrigatório*, *único*, *enum*] - Segue o padrão [LOINC](https://loinc.org/8361-8/ehttps:/loinc.org/8352-7/) para determinar a unidade de medida da circunferência abdominal. {*cm*, *in_us*}.
+
+<br>
+
+
+##### Informações adicionais [*opcional*, *único*, *objeto*]
