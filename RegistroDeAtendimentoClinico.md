@@ -198,7 +198,7 @@ O que levou o paciente a procurar a unidade de saúde para atendimento, contendo
 
 <br>
 
-#### Motivo do atendimento estruturado [*opcional*, *múltiplo*, *Array<object>*]
+#### Motivo do atendimento estruturado [*opcional*, *múltiplo*, *Array/Object*]
 
 1. **Terminologia que descreve o motivo do atendimento** [*obrigatório*, *único*, *enum*] - Os motivos utilizam a classificação CIAP ou CID. {*CIAP*, *CID*}.
 
