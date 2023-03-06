@@ -19,6 +19,9 @@
     - [Identificação do Indivíduo](RegistroDeAtendimentoClinico.md#identificação-do-indivíduo-obrigatório-único-objeto)
         - [Identificador Demográfico](RegistroDeAtendimentoClinico.md#identificador-demográfico-opcional-único-object-validação)
     - [Caracterização do Atendimento](RegistroDeAtendimentoClinico.md#caracterização-do-atendimento)
+        - [Profissionais do Atendimento](RegistroDeAtendimentoClinico.md#profissionais-do-atendimento-obrigatório-único-object)
+            - [Profissional](RegistroDeAtendimentoClinico.md#profissional-obrigatório-múltiplos-object)
+    - [Motivo do Atendimento](RegistroDeAtendimentoClinico.md#motivo-do-atendimento-opcional-único-objeto)
     
 <br>
 
@@ -90,13 +93,13 @@ Para identidicação do indivíduo apenas o CPF ou Carteira Nacional de Saúde (
 |:----------------|:---------|
 | **Validação**   | Em caso de CPF, consultar se existe a CNS, caso não deve ser criada. |
 
-2. **Identificador Demográfico** [*opcional*, *único*, *object*, *validação*] - Um outro objeto contendo os dados demográficos requeridos.
+2. **Identificador Demográfico** - Um outro objeto contendo os dados demográficos requeridos.
 
 |||
 |:----------------|:---------|
 | **Validação**   | Apenas inserido na ausência do Identicador Nacional. |
 
-3. **Endereço** [*opcional*, *único*, *string[]*, *validação*] - Uma sequencia contendo os nomes do logradouro em ordem de precedência.
+3. **Endereço** [*opcional*, *único*, *Array<string>*, *validação*] - Uma sequencia contendo os nomes do logradouro em ordem de precedência.
 
 |||
 |:----------------|:---------|
@@ -104,12 +107,14 @@ Para identidicação do indivíduo apenas o CPF ou Carteira Nacional de Saúde (
 
 **Obs-1**.: Em um sistema geolocalizado a referência dessas strings define objetos geojson agregados em si, consultar [tesa - tools for easy spatial analysis](https://github.com/CodePlayData/tesa).
 
+<br>
+
 ##### Identificador Demográfico [*opcional*, *único*, *object*, *validação*]
 Para se idenficar o indivíduo por dados demográficos deve-se ter:
 
-1. **Nome Completo** [*obrigatório*, *único*, *string*];
-2. **Nome Social** [*opcional*, *único*, *string*];
-3. **Nome completo da mãe** [*obrigatório*, *único*, *string*];
+1. **Nome Completo** [*obrigatório*, *único*, *Array<string>*];
+2. **Nome Social** [*opcional*, *único*, *Array<string>*];
+3. **Nome completo da mãe** [*obrigatório*, *único*, *Array<string>*];
 4. **Data de nascimento** [*obrigatório*, *único*, *string*, *validação*]
 
 |||
@@ -123,9 +128,51 @@ Para se idenficar o indivíduo por dados demográficos deve-se ter:
 **Obs-2**.: Os enums geográficos podem vir da classificação oficial do IBGE.
 
 
-...
+<br>
 
-#### **Caracterização do Atendimento** [*]
+#### Caracterização do Atendimento [*obrigatório*, *único*, *objeto* ]
+
+Um atendimento é composto de:
+
+1. **Identificador do Estabelecimento de saúde** [*obrigatório*, *único*, *string*] - O Cadastro Nacional de Estabelecimento em Saúde (CNES) de onde o atendimento está sendo produzido;
+
+2. **Procedência** [*obrigatório*, *único*, *enum* ] - Identifica o serviço que encaminhou o indivíduo ou a sua iniciativa/de seu responsável na busca pelo acesso ao serviço de saúde. {*Ordem Judicial*, *Retorno*, *Demanda espontânea*, *Demanda Referenciada*};
+
+3. **Identificação da equipe de saúde** [*opcional*, *único*, *enum* ] - Número válido do Identificador Nacional de Equipe (INE) no CNES;
+
+4. **Data e hora do atendimento** [*obrigatório*, *único*, *string* ] - Data e hora da aceitação do indivíduo para início do atendimento. Lembrando que em caso de não urgência/emergência essa aceitação não é automática;
+
+|||
+|:----------------|:---------|
+| **Validação**   | Compliance a ISO 8601. |
+
+5. **Modalidade assistencial** [*obrigatório*, *único*, *enum* ] - Tipo de assistência prestada pela unidade de saúde. {*Atenção Básica*, *Ambulatorial Especializada*, *Atenção Domiciliar*, *Atenção Psicossocial*, *Atenção à Urgência/Emergência*}.
+
+6. **Caráter de atendimento** [*obrigatório*, *único*, *enum* ] - Tipo de consulta. {*Consulta agendada*, *Consulta agendada programada: cuidado continuado*, *Demanda espontânea (DE): consulta no dia*, *Demanda espontânea (DE): atendimento de urgência*}.
+
+7. **Profissionais do atendimento** - Profissionais envolvidos no atendimento.
+
+<br>
+
+##### Profissionais do atendimento [*obrigatório*, *único*, *object*]
+
+Os profissionais envolvidos no atendimento são identificados por dois campos principais:
+
+1. **Profissional**;
+2. **Identificador do profissional atendente** [*obrigatório*, *único*, *string*, *validação*] - dentificação unívoca do profissional prescritor, mediante número único válido em todo o território nacional, sendo: Cadastro de Pessoa Física (CPF);
+
+|||
+|:----------------|:---------|
+| **Validação**   | Buscar o CADSUS para conferência. |
+
+###### Profissional [*obrigatório*, *múltiplos*, *object*]
+
+Os dados que idenficam um profissional são:
+
+1. **Nome do profissional** [*opcional*, *único*, *string*].
+2. **Número do conselho do profissional atendente** [*obrigatório*, *único*, *string*] - Indica o número do conselho do profissional atendente.
+3. **Conselho do profissional atendente** [*obrigatório*, *único*, *enum* ] - Indica a entidade de conselho do profissional atendente (CRM, CRF, CRO,...).
+4. **UF do conselho do profissional atendente** [*obrigatório*, *único*, *enum* ] - Indica a UF do Conselho do Profissional atendente.
 
 
-
+#### Motivo do Atendimento [*opcional*, *único*, *objeto* ]
