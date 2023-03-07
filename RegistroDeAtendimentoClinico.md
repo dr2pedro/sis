@@ -210,13 +210,13 @@ O que levou o paciente a procurar a unidade de saúde para atendimento, contendo
 A propriedade observações é uma propriedade opcional, de objetos opcionais mas que, caso existam, possuem propriedade obrigatórias. A maioria das observações são objetos de valor.
 
 1. **Sinais Vitais**;
-2. **Medições** [*opcional*, *único*, *objeto*];
-3. **Informações adicionais** [*opcional*, *único*, *objeto*];
+2. **Medições**;
+3. **Informações adicionais**;
 
 <br>
 
 #### Sinais Vitais [*opcional*, *único*, *objeto*]
-Na verdade o único sinal vital descrito, que ainda é opcional, é o registro da **Pressão Arterial**.
+Na verdade o único sinal vital descrito na normativa, que ainda é opcional, é o registro da **Pressão Arterial**.
 
 <br>
 
@@ -264,3 +264,27 @@ As medições consistem em: Peso, Altura, Perímetro Encefálico e Circunferênc
 
 
 #### Informações adicionais [*opcional*, *único*, *objeto*]
+As informações adicionais são classificações que não são Medições, Sinais Vitais e nem propriedades da doença/problema principal do atendimento.
+
+1. **DUM (Data da Última Menstruação)** [*opcional*, *único*, *date*, *validação*] - 
+
+|||
+|:----------------|:---------|
+| **Validação**   | ISO 8601. |
+
+2. **Idade gestacional** [*opcional*, *único*, *number*] - Quantidade indicada em dias ou semanas.
+2.1. **Unidade de medida da Idade Gestacional** [*obrigatório*, *único*, *enum*] - {*dias*, *semanas*};
+
+3. **Quantidade de gestas prévias** [*opcional*, *único*, *number*];
+4. **Quantidade de Partos** [*opcional*, *único*, *number*];
+5. **Quantidade de Abortos** [*opcional*, *único*, *number*];
+6. **Tipo de aleitamento materno para crianças até 2 anos** [*opcional*, *único*, *enum*] - {*Predominante*, *Complementado*, *Inexistente*};
+7. **Exposição à substâncias** [*opcional*, *múltiplo*];
+7.1. **Uso de álcool, tabaco e outras substâncias nos últimos 3 meses** [*opcional*, *múltiplo*];
+7.1.1. **Substância** [*opcional*, *único*, *enum*] - {*Derivados do tabaco*, *Bebidas alcoólicas*};
+7.1.2. **Outras substâncias não especificadas** [*opcional*, *único*, *string*];
+7.1.3. **Frequência nos últimos 3 meses** [*opcional*, *único*, *enum*] - {*Nunca*, *Mensalmente*, *2 ou mais vezes ao mês*, *Semanalmente*, *Diariamente ou quase todos os dias*};
+
+<br>
+
+### Problemas / diagnósticos avaliados
