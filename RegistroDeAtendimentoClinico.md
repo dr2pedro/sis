@@ -52,6 +52,8 @@ Com a implementação do padrão, previsto em lei, do Registro de Atendimento Cl
 
 <br>
 
+---
+
 ## StakeHolders
 
 Os atores mencionados na lei como partes interessadas na implementação do Registro de Atendimento Clínico são:
@@ -71,6 +73,8 @@ Os atores mencionados na lei como partes interessadas na implementação do Regi
 7. O próprio paciente e/ou seus responsáveis (_escopo aberto_);
 
 <br>
+
+---
 
 ## Especificação
 
@@ -96,23 +100,25 @@ Repare que esse agregado herda vários identificadores únicos de seus objetos d
 
 <br>
 
+---
+
 ### Identificacão do Indivíduo [*obrigatório*, *único*, *objeto*]
 
 Para identidicação do indivíduo apenas o CPF ou Carteira Nacional de Saúde (CNS) e o endereço. Caso o paciente não possua CPF e CNS, deve-se inserir um conjunto de dados demográficos.
 
-1. **Identificador Nacional** [*obrigatório*, *único*, *string*, *validação*] - Numeração do CPF ou da CNS;
+<br>
+
+#### Identificador Nacional [*obrigatório*, *único*, *string*, *validação*]
+Numeração do CPF ou da CNS;
 
 |||
 |:----------------|:---------|
 | **Validação**   | Em caso de CPF, consultar se existe a CNS, caso não deve ser criada. |
 
-2. **Identificador Demográfico** - Um outro objeto contendo os dados demográficos requeridos.
+<br>
 
-|||
-|:----------------|:---------|
-| **Validação**   | Apenas inserido na ausência do Identicador Nacional. |
-
-3. **Endereço** [*opcional*, *único*, *Array/string*, *validação*] - Uma sequencia contendo os nomes do logradouro em ordem de precedência.
+#### Endereço [*opcional*, *único*, *Array/string*, *validação*]
+Uma sequencia contendo os nomes do logradouro em ordem de precedência.
 
 |||
 |:----------------|:---------|
@@ -123,7 +129,13 @@ Para identidicação do indivíduo apenas o CPF ou Carteira Nacional de Saúde (
 <br>
 
 #### Identificador Demográfico [*opcional*, *único*, *object*, *validação*]
-Para se idenficar o indivíduo por dados demográficos deve-se ter:
+A idenficação do indivíduo pelas variáveis demográficas.
+
+|||
+|:----------------|:---------|
+| **Validação**   | Apenas inserido na ausência do Identicador Nacional. |
+
+As variáveis demográficas são:
 
 1. **Nome Completo** [*obrigatório*, *único*, *Array/string*];
 2. **Nome Social** [*opcional*, *único*, *Array/string*];
@@ -140,8 +152,9 @@ Para se idenficar o indivíduo por dados demográficos deve-se ter:
 
 **Obs-2**.: Os enums geográficos podem vir da classificação oficial do IBGE.
 
-
 <br>
+
+---
 
 ### Caracterizacão do Atendimento [*obrigatório*, *único*, *objeto* ]
 Um atendimento é composto de:
