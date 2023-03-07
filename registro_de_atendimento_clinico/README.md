@@ -5,12 +5,29 @@
 
 |||
 |:-------------:|:------------|
-|  **Autores**  | [Pedro Paulo dos Santos](https://github.com/dr2pedro), [Felipe Lima](), [José Antonio Hojota]() e Lorena Martins |
+|  **Autor(es)**  | [Pedro Paulo dos Santos](https://github.com/dr2pedro)
 | **Criado em** | 05-03-2022 |
 
 <br>
 
+## Licença
+
+CC0 1.0 Universal
+
+    CREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE
+    LEGAL SERVICES. DISTRIBUTION OF THIS DOCUMENT DOES NOT CREATE AN
+    ATTORNEY-CLIENT RELATIONSHIP. CREATIVE COMMONS PROVIDES THIS
+    INFORMATION ON AN "AS-IS" BASIS. CREATIVE COMMONS MAKES NO WARRANTIES
+    REGARDING THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS
+    PROVIDED HEREUNDER, AND DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM
+    THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED
+    HEREUNDER.
+
+<br>
+
 ## Resumo
+
+O Registro de Atendimento é um agregado, bem ao estilo *Domain Driven Design*, de **onze** outros objetos principais:
 
 <br>
 
@@ -25,8 +42,6 @@ Os gestores de estabelecimentos de saúde dependem de mapeamentos personalizados
 Com a implementação do padrão, previsto em lei, do Registro de Atendimento Clínico (RAC) será possível gerenciar o cuidado focado no paciente, permitir que o profissional de saúde tenha acesso a informações previamente fornecidas pelo paciente aos profissionais anteriores, reduzir a inserção manual de dados não padronizados e permitir que os registros sejam compilados de forma a facilitar a emissão de relatórios.
 
 <br>
-
----
 
 ## StakeHolders
 
@@ -48,23 +63,20 @@ Os atores mencionados na lei como partes interessadas na implementação do Regi
 
 <br>
 
----
 
-## Especificação/Índice
+## Índice
 
-O Registro de Atendimento é um agregado, bem ao estilo *Domain Driven Design*, de **onze** outros objetos principais:
-
-1. Identificação do Indivíduo;
-2. Caracterização do atendimento;
-3. Motivo do atendimento;
-4. Observações;
-5. Problemas / diagnósticos avaliados;
-6. Alergia e/ou reação adversa;
-7. Procedimento(s) realizado(s) ou solicitado(s);
-8. Prescrição no atendimento;
-9. Plano de cuidados, instruções e recomendações (na alta);
-10. Dados do desfecho;
-11. Informações Adicionais;
+- [Identificação do Indivíduo](identificacao_do_individuo.md)
+- Caracterização do atendimento;
+- Motivo do atendimento;
+- Observações;
+- Problemas / diagnósticos avaliados;
+- Alergia e/ou reação adversa;
+- Procedimento(s) realizado(s) ou solicitado(s);
+- Prescrição no atendimento;
+- Plano de cuidados, instruções e recomendações (na alta);
+- Dados do desfecho;
+- Informações Adicionais;
 
 Repare que esse agregado herda vários identificadores únicos de seus objetos de construção tais como: identificação do indivíduo, endereço, data e hora do atendimento e etc... O conjunto desses identificadores o torna único podendo ser considerado em si uma entidade/objeto de domínio, devendo ao menos ser persistindo em repositório próprio.
 
