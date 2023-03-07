@@ -10,32 +10,6 @@
 
 <br>
 
-## Índice
-
-- [Resumo](RegistroDeAtendimentoClinico.md#resumo)
-- [Motivacao](RegistroDeAtendimentoClinico.md#motivação)
-- [StakeHolders](RegistroDeAtendimentoClinico.md#stakeholders)
-- [Especificação](RegistroDeAtendimentoClinico.md#especificação)
-    - [Identificação do Indivíduo](RegistroDeAtendimentoClinico.md#identificacão-do-indivíduo-obrigatório-único-objeto)
-        - [Identificador Demográfico](RegistroDeAtendimentoClinico.md#identificador-demográfico-opcional-único-object-validação)
-    - [Caracterização do Atendimento](RegistroDeAtendimentoClinico.md#caracterizacão-do-atendimento-obrigatório-único-objeto)
-        - [Profissionais do Atendimento](RegistroDeAtendimentoClinico.md#profissionais-do-atendimento-obrigatório-único-object)
-            - [Profissional](RegistroDeAtendimentoClinico.md#profissional-obrigatório-múltiplos-object)
-    - [Motivo do Atendimento](RegistroDeAtendimentoClinico.md#motivo-do-atendimento-opcional-único-objeto)
-        - [Motivo do Atendimento Estruturado](RegistroDeAtendimentoClinico.md#motivo-do-atendimento-estruturado-opcional-múltiplo-array)
-    - [Observações](RegistroDeAtendimentoClinico.md#observações-opcional-único-objeto)
-        - [Sinais Vitais](RegistroDeAtendimentoClinico.md#sinais-vitais-opcional-único-objeto)
-            - [Pressão Arterial](RegistroDeAtendimentoClinico.md#pressão-arterial-opcional-único-objeto)
-        - [Medições](RegistroDeAtendimentoClinico.md#registro-de-atendimento-clínico)
-            - [Peso](RegistroDeAtendimentoClinico.md#peso-opcional-único-number)
-            - [Altura](RegistroDeAtendimentoClinico.md#altura-opcional-único-number)
-            - [Perímetro Cefálico](RegistroDeAtendimentoClinico.md#perímetro-cefálico-opcional-único-number)
-            - [Circunferência Abdominal](RegistroDeAtendimentoClinico.md#circunferência-abdominal-opcional-único-number)
-        - [Informações Adicionais](RegistroDeAtendimentoClinico.md#informações-adicionais-opcional-único-objeto)
-
-    
-<br>
-
 ## Resumo
 
 <br>
@@ -76,7 +50,7 @@ Os atores mencionados na lei como partes interessadas na implementação do Regi
 
 ---
 
-## Especificação
+## Especificação/Índice
 
 O Registro de Atendimento é um agregado, bem ao estilo *Domain Driven Design*, de **onze** outros objetos principais:
 
