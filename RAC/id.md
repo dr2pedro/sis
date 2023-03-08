@@ -46,7 +46,7 @@ Para a identificação do indivíduo utiliza-se o Cadastro Nacional Pessoa Físi
 ## Especificação
 
 ### Identificador Nacional 
-**conversão**: _National Identification_ ou NID.
+**conversão**: _Identification_ ou ID.
 
 <br>
 
@@ -152,6 +152,11 @@ Identificação do sexo da pessoa, não se refere a orientação sexual, identid
 ```
 1. Masculino
 2. Feminino
+
+---
+
+1. Male
+2. Female
 ```
 
 <br>

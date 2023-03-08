@@ -33,22 +33,19 @@ As propriedades do atendimento contém dados sobre o estabelecimento de saúde e
 - [Identificador do Estabelecimento de saúde](appointment.md#identificador-do-estabelecimento-de-saúde)
 - [Procedência](appointment.md#procedência)
 - [Identificação da equipe de saúde](appointment.md#idenficação-da-equipe-de-saúde)
-- [Data e hora do atendimento]()
-- [Modalidade assistencial]()
-- [Caráter de atendimento]()
-- [Profissionais do atendimento]()
-    - [Identificador do profissional atendente]()
-    - [Profissional]()
-        - [Nome do profissional]()
-        - [Número do conselho do profissional atendente]()
-        - [Conselho do profissional atendente]()
-        - [UF do conselho do profissional atendente]()
+- [Data e hora do atendimento](appointment.md#data-e-hora-do-atendimento)
+- [Modalidade assistencial](appointment.md#modalidade-assistencial)
+- [Caráter de atendimento](appointment.md#caráter-de-atendimento)
+- [Profissionais do atendimento](appointment.md#profissionais-do-atendimento)
+    - [Identificador do profissional atendente](appointment.md#identificador-do-profissional-atendente)
+    - [Profissional](professional.md)
 
 <br>
 
 ## Especificação
 
 ### Identificador do Estabelecimento de saúde
+**conversão**: _Clinical Identification_ ou CID.
 
 <br>
 
@@ -66,6 +63,7 @@ Os digítos do Cadastro Nacional de Estabelecimento de Saúde que é obrigatóri
 <br>
 
 ### Procedência
+**conversão**: _Referrer_.
 
 <br>
 
@@ -86,6 +84,7 @@ Identifica o serviço que encaminhou o indivíduo ou a sua iniciativa/de seu res
 <br>
 
 ### Idenficação da equipe de saúde
+**conversão**: _Team Identification_ ou TID.
 
 <br>
 
@@ -104,6 +103,7 @@ Número válido do Identificador Nacional de Equipe (INE) para casos de atendime
 <br>
 
 ### Data e hora do atendimento
+**conversão**: _Date from_ ou _from_.
 
 <br>
 
@@ -111,3 +111,98 @@ Número válido do Identificador Nacional de Equipe (INE) para casos de atendime
 |:----------------:|:-----------:|:----------------------:|:----------|
 | **Obrigatório**  | Única       |          String        |  true     |
 
+Data e hora da aceitação do indivíduo para início do atendimento. Lembrando que em caso de não urgência/emergência essa aceitação não é automática.
+
+**Validação**
+```
+1. Dependendo do UseCase, negar lançamentos históricos, ou seja, não permitir lançamentos que sejam anteriores a data do "hoje".
+2. Deve seguir a norma ISO 8601.
+```
+
+<br>
+
+### Modalidade assistencial
+**conversão**: _clinical type_ ou _type_.
+
+<br>
+
+|  Implementação   |  Instância  |           Tipo         | Validação |
+|:----------------:|:-----------:|:----------------------:|:----------|
+| **Obrigatório**  | Única       |           Enum         |  false    |
+
+Tipo de assistência prestada pela unidade de saúde.
+
+**Enum**
+```
+1. Atenção Básica
+2. Ambulatorial Especializada  
+3. Atenção Domiciliar
+4. Atenção Psicossocial
+5. Atenção à Urgência/Emergência
+
+---
+
+1. Primary Care
+2. Specialized Practice
+3. House Care
+4. Psychosocial Practice
+5. Emergency
+```
+
+<br>
+
+### Caráter de atendimento
+**conversão**: _Appointment type_ ou _Appointment source_.
+
+<br>
+
+|  Implementação   |  Instância  |           Tipo         | Validação |
+|:----------------:|:-----------:|:----------------------:|:----------|
+| **Obrigatório**  | Única       |           Enum         |  false    |
+
+Na verdade essa propriedade lida com a origem da consulta frente à um agendamento ou não agendamento.
+
+**Enum**
+```
+1. Consulta agendada
+2. Consulta agendada programada: cuidado continuado
+3. Demanda espontânea (DE): consulta no dia
+4. Demanda espontânea (DE): atendimento de urgência
+
+---
+1. Booked appointment
+2. Booked appointment: continuous care
+3. Not booked appointment
+4. Urgency
+```
+
+<br>
+
+### Profissionais do atendimento
+**conversão**: _Professionals_??.
+
+<br>
+
+|  Implementação   |  Instância  |     Tipo      | Validação |
+|:----------------:|:-----------:|:-------------:|:----------|
+| **Obrigatório**  | Única       |    Objeto     |  false    |
+
+<br>
+
+#### Identificador do profissional atendente
+**conversão**: _Main Professional Identification_ ou PID.
+
+<br>
+
+|  Implementação   |  Instância  |     Tipo      | Validação |
+|:----------------:|:-----------:|:-------------:|:----------|
+| **Obrigatório**  | Única       |    String     |   true    |
+
+Identificação unívoca do profissional prescritor, mediante número único válido em todo o território nacional. Por enquanto esse identificador é o Cadastro de Pessoa Física (CPF).
+
+**Validação**
+```
+1. Buscar o identificador fornecido no CADSUS.
+```
+
+<br>

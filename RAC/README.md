@@ -1,4 +1,4 @@
-# Registro de Atendimento Clínico 
+# Registro de Atendimento Clínico (RAC)
 **Fonte**: [PORTARIA Nº 234, DE 18 DE JULHO DE 2022](https://www.in.gov.br/en/web/dou/-/portaria-n-234-de-18-de-julho-de-2022-416506215)
 
 <br>
@@ -67,7 +67,7 @@ Os atores mencionados na lei como partes interessadas na implementação do Regi
 ## Índice
 
 - [Identificação do Indivíduo](id.md)
-- Caracterização do atendimento;
+- [Caracterização do atendimento](appointment.md)
 - Motivo do atendimento;
 - Observações;
 - Problemas / diagnósticos avaliados;
