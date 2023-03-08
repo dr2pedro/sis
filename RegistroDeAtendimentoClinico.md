@@ -175,11 +175,6 @@ As informações adicionais são classificações que não são Medições, Sina
 4. **Quantidade de Partos** [*opcional*, *único*, *number*];
 5. **Quantidade de Abortos** [*opcional*, *único*, *number*];
 6. **Tipo de aleitamento materno para crianças até 2 anos** [*opcional*, *único*, *enum*] - {*Predominante*, *Complementado*, *Inexistente*};
-7. **Exposição à substâncias** [*opcional*, *múltiplo*];
-7.1. **Uso de álcool, tabaco e outras substâncias nos últimos 3 meses** [*opcional*, *múltiplo*];
-7.1.1. **Substância** [*opcional*, *único*, *enum*] - {*Derivados do tabaco*, *Bebidas alcoólicas*};
-7.1.2. **Outras substâncias não especificadas** [*opcional*, *único*, *string*];
-7.1.3. **Frequência nos últimos 3 meses** [*opcional*, *único*, *enum*] - {*Nunca*, *Mensalmente*, *2 ou mais vezes ao mês*, *Semanalmente*, *Diariamente ou quase todos os dias*};
 
 <br>
 

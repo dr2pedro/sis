@@ -38,14 +38,14 @@ As propriedades do atendimento contém dados sobre o estabelecimento de saúde e
 
 ## Índice
 
-- [Identificador do Estabelecimento de saúde](appointment.md#identificador-do-estabelecimento-de-saúde)
-- [Procedência](appointment.md#procedência)
-- [Identificação da equipe de saúde](appointment.md#idenficação-da-equipe-de-saúde)
-- [Data e hora do atendimento](appointment.md#data-e-hora-do-atendimento)
-- [Modalidade assistencial](appointment.md#modalidade-assistencial)
-- [Caráter de atendimento](appointment.md#caráter-de-atendimento)
-- [Profissionais do atendimento](appointment.md#profissionais-do-atendimento)
-    - [Identificador do profissional atendente](appointment.md#identificador-do-profissional-atendente)
+- [Identificador do Estabelecimento de saúde](Appointment.md#identificador-do-estabelecimento-de-saúde)
+- [Procedência](Appointment.md#procedência)
+- [Identificação da equipe de saúde](Appointment.md#idenficação-da-equipe-de-saúde)
+- [Data e hora do atendimento](Appointment.md#data-e-hora-do-atendimento)
+- [Modalidade assistencial](Appointment.md#modalidade-assistencial)
+- [Caráter de atendimento](Appointment.md#caráter-de-atendimento)
+- [Profissionais do atendimento](Appointment.md#profissionais-do-atendimento)
+    - [Identificador do profissional atendente](Appointment.md#identificador-do-profissional-atendente)
     - [Profissional](professional.md)
 
 <br>

@@ -38,10 +38,10 @@ O que levou o paciente a buscar a unidade de saúde para àquele atendimento cl�
 
 ## Índice
 
-- [Motivo do atendimento estruturado](motive.md#motivo-do-atendimento-estruturado)
-    - [Terminologia que descreve o motivo do atendimento](motive.md#terminologia-que-descreve-o-motivo-do-atendimento)
-    - [Código do motivo do atendimento](motive.md#código-do-motivo-do-atendimento)
-- [Declaração subjetiva do indivíduo para o atendimento](motive.md#declaração-subjetiva-do-indivíduo-para-o-atendimento)
+- [Motivo do atendimento estruturado](Motive.md#motivo-do-atendimento-estruturado)
+    - [Terminologia que descreve o motivo do atendimento](Motive.md#terminologia-que-descreve-o-motivo-do-atendimento)
+    - [Código do motivo do atendimento](Motive.md#código-do-motivo-do-atendimento)
+- [Declaração subjetiva do indivíduo para o atendimento](Motive.md#declaração-subjetiva-do-indivíduo-para-o-atendimento)
 
 <br>
 

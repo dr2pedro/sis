@@ -38,10 +38,10 @@ Esses são os dados mínimos de identificação de um professional dentro do esc
 
 ## Índice
 
-- [Nome do profissional](professional.md#nome-do-profissional)
-- [Número do conselho do profissional atendente](professional.md#número-do-conselho-do-profissional-atendente)
-- [Conselho do profissional atendente](professional.md#conselho-do-profissional-atendente)
-- [UF do conselho do profissional atendente](professional.md#uf-do-conselho-do-profissional-atendente)
+- [Nome do profissional](Professional.md#nome-do-profissional)
+- [Número do conselho do profissional atendente](Professional.md#número-do-conselho-do-profissional-atendente)
+- [Conselho do profissional atendente](Professional.md#conselho-do-profissional-atendente)
+- [UF do conselho do profissional atendente](Professional.md#uf-do-conselho-do-profissional-atendente)
 
 <br>
 
