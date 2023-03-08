@@ -1,5 +1,13 @@
 # Identificação do Indivíduo
 
+<br>
+
+|  Implementação   |  Instância  |           Tipo         | Validação |
+|:----------------:|:-----------:|:----------------------:|:----------|
+|  **Obrigatório** | Única       |          Objeto        |   false   |
+
+<br>
+
 ## Licença
 
 CC0 1.0 Universal

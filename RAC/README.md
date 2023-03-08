@@ -68,7 +68,7 @@ Os atores mencionados na lei como partes interessadas na implementação do Regi
 
 - [Identificação do Indivíduo](id.md)
 - [Caracterização do atendimento](appointment.md)
-- Motivo do atendimento;
+- [Motivo do atendimento](motive.md)
 - Observações;
 - Problemas / diagnósticos avaliados;
 - Alergia e/ou reação adversa;
