@@ -66,7 +66,7 @@ Os atores mencionados na lei como partes interessadas na implementação do Regi
 
 ## Índice
 
-- [Identificação do Indivíduo](identificacao_do_individuo.md)
+- [Identificação do Indivíduo](id.md)
 - Caracterização do atendimento;
 - Motivo do atendimento;
 - Observações;

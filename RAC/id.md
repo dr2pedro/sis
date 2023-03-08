@@ -30,22 +30,23 @@ Para a identificação do indivíduo utiliza-se o Cadastro Nacional Pessoa Físi
 
 ## Índice
 
-- [Identificador Nacional](identificacao_do_individuo.md#identificador-nacional)
-- [Identificadores Demográficos](identificacao_do_individuo.md#identificadores-demográficos)
-    - [Nome Completo](identificacao_do_individuo.md#nome-completo)
-    - [Nome Social](identificacao_do_individuo.md#nome-social)
-    - [Nome completo da Mãe](identificacao_do_individuo.md#nome-completo-da-mãe)
-    - [Data de Nascimento](identificacao_do_individuo.md#data-de-nascimento)
-    - [Sexo](identificacao_do_individuo.md#sexo)
-    - [País de Nascimento](identificacao_do_individuo.md#país-de-nascimento)
-    - [Município de Nascimento](identificacao_do_individuo.md#município-de-nascimento)
-- [Endereço](identificacao_do_individuo.md#endereço)
+- [Identificador Nacional](id.md#identificador-nacional)
+- [Identificadores Demográficos](id.md#identificadores-demográficos)
+    - [Nome Completo](id.md#nome-completo)
+    - [Nome Social](id.md#nome-social)
+    - [Nome completo da Mãe](id.md#nome-completo-da-mãe)
+    - [Data de Nascimento](id.md#data-de-nascimento)
+    - [Sexo](id.md#sexo)
+    - [País de Nascimento](id.md#país-de-nascimento)
+    - [Município de Nascimento](id.md#município-de-nascimento)
+- [Endereço](id.md#endereço)
 
 <br>
 
 ## Especificação
 
 ### Identificador Nacional 
+**conversão**: _National Identification_ ou NID.
 
 <br>
 
@@ -65,7 +66,7 @@ A sequência numérica que do CPF (11 digitos) ou da CNS (15 digitos).
 <br>
 
 ### Identificadores Demográficos
-
+**conversão**: _Social Identification_ ou SID.
 <br>
 
 |  Implementação   |  Instância  |     Tipo      | Validação |
@@ -84,7 +85,7 @@ Os idenficadores demográficos só devem ser usadas caso o paciente não possua 
 <br>
 
 #### Nome completo
-
+**conversão**: _Full name_.
 <br>
 
 |  Implementação   |  Instância  |         Tipo           | Validação |
@@ -96,6 +97,7 @@ Nome completo sem abreviações, implementado em lista com ordem específica. Re
 <br>
 
 #### Nome social
+**conversão**: _Social name_.
 
 <br>
 
@@ -108,7 +110,7 @@ Esse é o nome que a pessoa gostaria de ser identificada, sendo opcional nos cas
 <br>
 
 #### Nome completo da mãe
-
+**conversão**: _Mother's name_.
 <br>
 
 |    Implementação    |  Instância  |         Tipo           | Validação |
@@ -120,7 +122,7 @@ Esse campo possui a mesma função do campo filiação das cédulas de identidad
 <br>
 
 #### Data de Nascimento
-
+**conversão**: _Birthdate_.
 <br>
 
 |    Implementação    |  Instância  |         Tipo           | Validação |
@@ -137,7 +139,7 @@ Repare que o campo necessita de uma string e não um tipo Date, que irá aparece
 <br>
 
 #### Sexo
-
+**conversão**: _Gender_.
 <br>
 
 |    Implementação    |  Instância  |         Tipo           | Validação |
@@ -155,7 +157,7 @@ Identificação do sexo da pessoa, não se refere a orientação sexual, identid
 <br>
 
 #### País de Nascimento
-
+**conversão**: _Country_.
 <br>
 
 |    Implementação    |  Instância  |         Tipo           | Validação |
@@ -172,7 +174,7 @@ Buscar na API do IBGE a identificação numérica oficial dos países.
 <br>
 
 #### Município de Nascimento
-
+**conversão**: _City_.
 <br>
 
 |    Implementação    |  Instância  |         Tipo           | Validação |
@@ -188,8 +190,8 @@ Buscar na API do IBGE a identificação numérica oficial dos municípios.
 
 <br>
 
-## Endereço
-
+### Endereço
+**conversão**: _Address_.
 <br>
 
 |  Implementação   |  Instância  |           Tipo         | Validação |
